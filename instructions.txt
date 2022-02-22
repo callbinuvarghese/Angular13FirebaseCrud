@@ -1,0 +1,46 @@
+
+Originated from https://www.bezkoder.com/angular-13-firebase-crud/
+Inspired from https://github.com/bezkoder/angular-13-firebase-crud
+
+Firebase console
+https://console.firebase.google.com/project/angular13-firebase1/overview
+Created Realtime Database
+Generated the config code and saved it to put in under environments later.
+
+
+npm install firebase
+ng new Angular13FirebaseCrud
+cd Angular13FirebaseCrud
+
+put firebase config under environments
+environment.ts
+     firebase : {
+    apiKey: "xxxx",
+    authDomain: "angular13-firebase1.firebaseapp.com",
+    projectId: "angular13-firebase1",
+    storageBucket: "angular13-firebase1.appspot.com",
+    messagingSenderId: "151997086973",
+    appId: "xxx",
+    databaseURL:"angular13-firebase1-default-rtdb.asia-southeast1.firebasedatabase.app"
+  }
+databaseURL does not exist on firebase config. 
+Need to create Realtime database on firebase console
+get the database URL from there and add to environment.ts 
+
+rxjs version - using latest version create compilation error; so had to use an older version
+    The issue was in retriving snapshot on the service services/tutorial
+angular/firebase - used an older version for safe path; Should try newer version
+
+ng g s services/tutorial
+ng g c components/add-tutorial
+ng g c components/tutorial-details
+ng g c components/tutorials-list
+ng g class models/tutorial --type=model
+
+npm install --save firebase
+npm install firebase @angular/fire --save
+npm install rxjs --save
+
+npm install to install package.json components
+run the ng server with ng serve
+ng serve
